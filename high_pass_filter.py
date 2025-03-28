@@ -11,7 +11,7 @@ fs = fields["fs"]  # Sampling frequency
 t = np.arange(len(signal)) / fs  # Time axis
 ecg_lead = signal[:, 0]  # Select first ECG lead (MLII)
 
-#Since in the original signal there is no baseline issue, We add low frequency noise for experimental purpose
+#Since in the original signal there is no baseline issue, We add low frequency noise for Understanding purpose
 ecg_lead += np.sin(2*np.pi*0.2*t)
 
 # High-Pass Filter Parameters
