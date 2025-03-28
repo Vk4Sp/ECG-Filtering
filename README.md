@@ -1,72 +1,96 @@
-# ECG-Filtering
-This repository contains a collection of signal processing techniques for filtering ECG (Electrocardiogram) signals. The project focuses on removing various types of noise from ECG recordings, such as powerline interference (50 Hz), baseline wander, and high-frequency muscle artifacts, using different filtering methods.
 # ECG Signal Filtering Project
 
 ## Project Overview
-This repository contains various filtering techniques for processing ECG (Electrocardiogram) signals. The goal is to remove different types of noise and artifacts to improve ECG signal quality for further analysis.
+This project focuses on denoising real-world ECG signals by applying multiple filtering techniques to remove artifacts.
 
-## Implemented Filters
-- **Notch Filter (50 Hz):** Removes powerline interference.
-- **Low-Pass Filter (40 Hz cutoff):** Eliminates high-frequency noise.
-- **High-Pass Filter (0.5 Hz cutoff):** Removes baseline wander.
-- **Band-Pass Filter (0.5 - 40 Hz):** Combines both low-pass and high-pass filtering.
+- **Dataset:** MIT-BIH Arrhythmia Database (PhysioNet)
+- **Filtering Methods:** Notch, Low-Pass, High-Pass, Band-Stop, Band-Pass
+- **Analysis:** Time-domain & Frequency-domain (FFT) comparison
+- **Results:** Plotted before & after filtering
 
-## Results and Visualizations
-This project includes before and after filtering plots to compare how noise removal affects ECG signals. Zoom functionality is implemented in the visualizations to help analyze specific sections of the ECG signal more clearly. Predefined zoom ranges are used to focus on specific time intervals.
+## Objectives
+- Load real ECG signals and analyze their raw characteristics.
+- Apply different filtering techniques to remove artifacts.
+- Use FFT analysis to compare frequency spectra before & after filtering.
+- Provide zoomed-in views for better ECG visualization.
 
-## How to Use
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Vk4Sp/ECG-Filtering.git
-   cd ECG-Filtering
-   ```
-2. Install required dependencies:
-   ```bash
-   pip install wfdb numpy scipy matplotlib
-   ```
-3. Run any filter script to process ECG data:
-   ```bash
-   python notch_filter.py
-   ```
-4. View filtered ECG plots and compare results.
+## Dataset Details
+- **Source:** MIT-BIH Arrhythmia Database ([PhysioNet](https://physionet.org/content/mitdb/1.0.0/))
+- **Sampling Frequency:** 360 Hz
+- **Lead Used:** MLII (Lead II)
+- **Example Record:** 100
 
-## Low-Pass Filter Results 
-### Without Zooming
-![Without Zooming](result/results_without_zooming_lpf.png)
+## Filtering Techniques Used
 
-### Before & After Filtering (Zoomed View)  
-**Original ECG:**  
-![Original ECG](result/original_ecg.png)  
+### 1. Notch Filter (50 Hz)
+- **Purpose:** Removes powerline interference at 50 Hz.
+- **Method:** Implemented using `scipy.signal.iirnotch()`.
+- **Effectiveness:** Verified using FFT before & after filtering.
 
-**Low-Pass Filtered ECG:**  
-![Low-Pass Filtered ECG](result/low_pass_filtered.png)  
+### 2. Low-Pass Filter (40 Hz)
+- **Purpose:** Removes high-frequency noise (e.g., muscle artifacts).
+- **Method:** Implemented using `scipy.signal.butter()` and `filtfilt()`.
 
-## High-Pass Filter Results
-Since the ECG data from the library doesn't contain low frequecny noises (Baseline disturbance). 
-So, here we added a 0.2 Hz sine wave to the ECG data for understanding the implementation of High Pass Filter.
+### 3. High-Pass Filter (0.5 Hz)
+- **Purpose:** Removes low-frequency drift (e.g., baseline wander).
+- **Method:** Implemented using `scipy.signal.butter()` and `filtfilt()`.
 
-### Without Zooming
-![Without Zooming](result/results_without_zooming_hpf.png)
+### 4. Band-Stop Filter (45-55 Hz)
+- **Purpose:** Removes a range of powerline noise instead of just 50 Hz.
+- **Method:** Implemented using `scipy.signal.butter()` with `btype='bandstop'`.
 
-### Before & After Filtering (Zoomed View)  
-**Original ECG:**  
-![Original ECG](result/original_ecg_hpf.png)  
+### 5. Band-Pass Filter (0.5 - 40 Hz)
+- **Purpose:** Most effective filtering method, removing both baseline drift & high-frequency noise while preserving ECG features.
+- **Method:** Implemented using `scipy.signal.butter()` with `btype='band'`.
 
-**High-Pass Filtered ECG:**  
-![High-Pass Filtered ECG](result/high_pass_filtered.png)  
+## Results & Visualizations
+The project includes:
+- Original ECG vs. Notch Filtered ECG
+- Original ECG vs. Low-Pass Filtered ECG
+- Original ECG vs. High-Pass Filtered ECG
+- Original ECG vs. Band-Stop Filtered ECG
+- Original ECG vs. Band-Pass Filtered ECG
 
-## Future Work
-- Implement adaptive filtering for real-time ECG processing.
-- Explore AI/ML-based denoising techniques.
+### Sample FFT Analysis
+- **Before Filtering (Original Signal FFT):** Shows noise peaks.
+- **After Filtering (Processed Signal FFT):** Noise peaks are removed.
+- **Zoomed ECG Views:** Highlighting signal improvements.
+
+**Results are stored in the `results/` folder.**
+
+## How to Run This Project?
+
+### Install Required Libraries
+```bash
+pip install wfdb numpy scipy matplotlib
+```
+
+### Run Individual Filters
+Example:
+```bash
+python band_pass_filter.py
+```
+
+### Run Complete Filtering Pipeline
+```bash
+python ecg_filtering.py
+```
+
+### Run in Jupyter Notebook (Recommended)
+Use `ECG_Filtering.ipynb` for interactive visualization.
+
+## Future Improvements
+- Implement Adaptive Filtering for real-time ECG noise cancellation.
+- Explore AI/ML-based ECG denoising techniques.
 - Process multi-lead ECG analysis.
 
-## License
-This project is licensed under the MIT License.
+## References
+- **MIT-BIH Arrhythmia Database:** [PhysioNet](https://physionet.org/content/mitdb/1.0.0/)
+- **Signal Processing Techniques in ECG Analysis**
 
 ## Author
-[Venkatesan]
+- **GitHub Repository:** [Your Repo Link]
+- **License:** MIT License
 
-## GitHub Repository
-[https://github.com/Vk4Sp/ECG-Filtering]
+🚀 Contributions are welcome!
 
-Contributions and suggestions are welcome.
