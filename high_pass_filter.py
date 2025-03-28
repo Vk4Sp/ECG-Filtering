@@ -2,33 +2,29 @@ import wfdb
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import butter, filtfilt
+from scipy.fft import fft, fftfreq
 
 # Load ECG Data
 record_name = "100"
 database = "mitdb"
 signal, fields = wfdb.rdsamp(record_name, pn_dir=database)
-fs = fields["fs"]  # Sampling frequency
-t = np.arange(len(signal)) / fs  # Time axis
-ecg_lead = signal[:, 0]  # Select first ECG lead (MLII)
-
-#Since in the original signal there is no baseline issue, We add low frequency noise for Understanding purpose
-ecg_lead += np.sin(2*np.pi*0.2*t)
+fs = fields["fs"]
+t = np.arange(len(signal)) / fs
+ecg_lead = signal[:, 0]
+#ecg_lead += 0.5 * np.sin(2 * np.pi * 0.2 * t)  # Simulating baseline wander
 
 # High-Pass Filter Parameters
-cutoff = 0.5  # Cutoff frequency (Hz)
-order = 4  # Filter order
+cutoff = 0.8  # Hz
+order = 6
 
-# Design High-Pass Butterworth Filter
-b, a = butter(order, cutoff / (fs / 2), btype="high", analog=False)
-
-# Apply High-Pass Filtering
+# Apply High-Pass Filter
+b, a = butter(order, cutoff / (fs / 2), btype='high', analog=False)
 filtered_signal = filtfilt(b, a, ecg_lead)
 
-# Function for Zooming In on Specific Time Ranges
+# Function for Zoomed Plot
 def plot_zoomed_signal(signal, t, title, zoom_start, zoom_end, c):
     start_idx = int(zoom_start * fs)
     end_idx = int(zoom_end * fs)
-
     plt.figure(figsize=(12, 5))
     plt.plot(t[start_idx:end_idx], signal[start_idx:end_idx], label=title, color=c)
     plt.xlabel("Time (seconds)")
@@ -38,7 +34,32 @@ def plot_zoomed_signal(signal, t, title, zoom_start, zoom_end, c):
     plt.grid()
     plt.show()
 
-# Plot Full Signal
+# FFT Analysis
+n = len(ecg_lead)
+freqs = fftfreq(n, 1/fs)
+ecg_fft = np.abs(fft(ecg_lead))
+filtered_fft = np.abs(fft(filtered_signal))
+
+# Plot Frequency Spectrum
+plt.figure(figsize=(12, 5))
+plt.subplot(2,1,1)
+plt.plot(freqs[:n // 2], ecg_fft[:n // 2], label="Original ECG Spectrum", color="b")
+plt.ylabel("Magnitude")
+plt.title("Frequency Spectrum Before & After High-Pass Filtering (0.5 Hz)")
+plt.legend()
+plt.grid()
+plt.ylim(0, 6000)  # Adjust if necessary
+
+plt.subplot(2,1,2)
+plt.plot(freqs[:n // 2], filtered_fft[:n // 2], label="Filtered ECG Spectrum (High-Pass)", color="r")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Magnitude")
+plt.legend()
+plt.grid()
+plt.ylim(0, 6000)
+plt.show()
+
+# Full Signal Plot
 plt.figure(figsize=(12, 5))
 plt.plot(t, ecg_lead, label="Original ECG", alpha=0.6)
 plt.plot(t, filtered_signal, label="High-Pass Filtered ECG (0.5 Hz)", color="r")
@@ -49,7 +70,7 @@ plt.legend()
 plt.grid()
 plt.show()
 
-# Fixed Zoom Range for Better Visualization
+# Zoomed-in Signal Plot
 zoom_start = 0
 zoom_end = 5
 plot_zoomed_signal(ecg_lead, t, "Original ECG", zoom_start, zoom_end, "b")
