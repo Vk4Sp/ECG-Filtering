@@ -33,13 +33,25 @@ This project includes before and after filtering plots to compare how noise remo
 ## Low-Pass Filter Results 
 ### Without Zooming
 ![Without Zooming](result/results_without_zooming_lpf.png)
+
 ### Before & After Filtering (Zoomed View)  
 **Original ECG:**  
 ![Original ECG](result/original_ecg.png)  
 
 **Low-Pass Filtered ECG:**  
 ![Low-Pass Filtered ECG](result/low_pass_filtered.png)  
- 
+
+## High-Pass Filter Results
+### Without Zooming
+![Without Zooming](result/results_without_zooming_hpf.png)
+
+### Before & After Filtering (Zoomed View)  
+**Original ECG:**  
+![Original ECG](result/original_ecg_hpf.png)  
+
+**High-Pass Filtered ECG:**  
+![High-Pass Filtered ECG](result/high_pass_filtered.png)  
+
 ## Future Work
 - Implement adaptive filtering for real-time ECG processing.
 - Explore AI/ML-based denoising techniques.
