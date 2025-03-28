@@ -33,10 +33,10 @@ This project includes before and after filtering plots to compare how noise remo
 ## Low-Pass Filter Results  
 ### Before & After Filtering (Zoomed View)  
 **Original ECG:**  
-![Original ECG](results/original_ecg.png)  
+![Original ECG](result/original_ecg.png)  
 
 **Low-Pass Filtered ECG:**  
-![Low-Pass Filtered ECG](results/low_pass_filtered.png)  
+![Low-Pass Filtered ECG](result/low_pass_filtered.png)  
  
 ## Future Work
 - Implement adaptive filtering for real-time ECG processing.
