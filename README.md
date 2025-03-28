@@ -32,7 +32,10 @@ This project includes before and after filtering plots to compare how noise remo
 
 ## Low-Pass Filter Results  
 ### Before & After Filtering (Zoomed View)  
-[result/low_pass_filtered.png]
+
+**Low-Pass Filtered ECG:**  
+![Low-Pass Filtered ECG](results/low_pass_filtered.png)  
+
 
 
 ## Future Work
