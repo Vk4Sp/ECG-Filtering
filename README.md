@@ -42,6 +42,9 @@ This project includes before and after filtering plots to compare how noise remo
 ![Low-Pass Filtered ECG](result/low_pass_filtered.png)  
 
 ## High-Pass Filter Results
+Since the ECG data from the library doesn't contain low frequecny noises (Baseline disturbance). 
+So, here we added a 0.2 Hz sine wave to the ECG data for understanding the implementation of High Pass Filter
+
 ### Without Zooming
 ![Without Zooming](result/results_without_zooming_hpf.png)
 
