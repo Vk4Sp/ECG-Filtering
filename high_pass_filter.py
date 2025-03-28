@@ -11,10 +11,9 @@ signal, fields = wfdb.rdsamp(record_name, pn_dir=database)
 fs = fields["fs"]
 t = np.arange(len(signal)) / fs
 ecg_lead = signal[:, 0]
-#ecg_lead += 0.5 * np.sin(2 * np.pi * 0.2 * t)  # Simulating baseline wander
 
 # High-Pass Filter Parameters
-cutoff = 0.8  # Hz
+cutoff = 0.5  # Hz
 order = 6
 
 # Apply High-Pass Filter
