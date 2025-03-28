@@ -22,8 +22,8 @@ This project focuses on denoising real-world ECG signals by applying multiple fi
 
 ## Filtering Techniques Used
 
-### 1. Notch Filter (50/60 Hz)
-- **Purpose:** Removes powerline interference at 50 Hz.
+### 1. Notch Filter (50 or 60 Hz)
+- **Purpose:** Removes powerline interference at 50 or 60 Hz based on the region(i.e., In India the powerline interference frequency is 50 Hz, whereas in USA(America) the powerline interference frequency is 60 Hz).
 - **Method:** Implemented using `scipy.signal.iirnotch()`.
 - **Effectiveness:** Verified using FFT before & after filtering.
 
@@ -35,12 +35,12 @@ This project focuses on denoising real-world ECG signals by applying multiple fi
 - **Purpose:** Removes low-frequency drift (e.g., baseline wander).
 - **Method:** Implemented using `scipy.signal.butter()` and `filtfilt()`.
 
-### 4. Band-Stop Filter (55-65 Hz)
-- **Purpose:** Removes a range of powerline noise instead of just 50/60 Hz.
+### 4. Band-Stop Filter ((45 - 55) or (55 - 65) Hz)
+- **Purpose:** Removes a range of powerline noise instead of just 50 or 60 Hz based on the region(i.e., In India the powerline interference frequency is 50 Hz, whereas in USA(America) the powerline interference frequency is 60 Hz).
 - **Method:** Implemented using `scipy.signal.butter()` with `btype='bandstop'`.
 
-### 5. Band-Pass Filter (0.5/1 - 40/50 Hz)
-- **Purpose:** Most effective filtering method, removing both baseline drift & high-frequency noise while preserving ECG features.
+### 5. Band-Pass Filter ((0.5 - 40) or (1 - 50) Hz)
+- **Purpose:** Most effective filtering method, removing both baseline drift & high-frequency noise while preserving ECG features. The frequency may different based on the requirement or based on the ECG signal.
 - **Method:** Implemented using `scipy.signal.butter()` with `btype='band'`.
 
 ## Results & Visualizations
