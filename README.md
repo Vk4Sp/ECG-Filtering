@@ -30,7 +30,9 @@ This project includes before and after filtering plots to compare how noise remo
    ```
 4. View filtered ECG plots and compare results.
 
-## Low-Pass Filter Results  
+## Low-Pass Filter Results 
+### Without Zooming
+![Without Zooming](result/results_without_zooming_lpf.png)
 ### Before & After Filtering (Zoomed View)  
 **Original ECG:**  
 ![Original ECG](result/original_ecg.png)  
