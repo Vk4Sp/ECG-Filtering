@@ -17,7 +17,7 @@ This project includes before and after filtering plots to compare how noise remo
 ## How to Use
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/ECG-Filtering.git
+   git clone https://github.com/Vk4Sp/ECG-Filtering.git
    cd ECG-Filtering
    ```
 2. Install required dependencies:
@@ -42,6 +42,6 @@ This project is licensed under the MIT License.
 [Venkatesan]
 
 ## GitHub Repository
-[Your Repo Link]
+[https://github.com/Vk4Sp/ECG-Filtering]
 
 Contributions and suggestions are welcome.
