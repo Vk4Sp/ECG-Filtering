@@ -22,12 +22,12 @@ This project focuses on denoising real-world ECG signals by applying multiple fi
 
 ## Filtering Techniques Used
 
-### 1. Notch Filter (50 Hz)
+### 1. Notch Filter (50/60 Hz)
 - **Purpose:** Removes powerline interference at 50 Hz.
 - **Method:** Implemented using `scipy.signal.iirnotch()`.
 - **Effectiveness:** Verified using FFT before & after filtering.
 
-### 2. Low-Pass Filter (40 Hz)
+### 2. Low-Pass Filter (50 Hz)
 - **Purpose:** Removes high-frequency noise (e.g., muscle artifacts).
 - **Method:** Implemented using `scipy.signal.butter()` and `filtfilt()`.
 
@@ -35,11 +35,11 @@ This project focuses on denoising real-world ECG signals by applying multiple fi
 - **Purpose:** Removes low-frequency drift (e.g., baseline wander).
 - **Method:** Implemented using `scipy.signal.butter()` and `filtfilt()`.
 
-### 4. Band-Stop Filter (45-55 Hz)
-- **Purpose:** Removes a range of powerline noise instead of just 50 Hz.
+### 4. Band-Stop Filter (55-65 Hz)
+- **Purpose:** Removes a range of powerline noise instead of just 50/60 Hz.
 - **Method:** Implemented using `scipy.signal.butter()` with `btype='bandstop'`.
 
-### 5. Band-Pass Filter (0.5 - 40 Hz)
+### 5. Band-Pass Filter (0.5/1 - 40/50 Hz)
 - **Purpose:** Most effective filtering method, removing both baseline drift & high-frequency noise while preserving ECG features.
 - **Method:** Implemented using `scipy.signal.butter()` with `btype='band'`.
 
@@ -89,8 +89,8 @@ Use `ECG_Filtering.ipynb` for interactive visualization.
 - **Signal Processing Techniques in ECG Analysis**
 
 ## Author
-- **GitHub Repository:** [Your Repo Link]
+- **GitHub Repository:** [https://github.com/Vk4Sp/ECG-Filtering)]
 - **License:** MIT License
 
-🚀 Contributions are welcome!
+ Contributions are welcome!
 
