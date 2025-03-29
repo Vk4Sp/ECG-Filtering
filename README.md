@@ -63,7 +63,7 @@ By applying these filters to real ECG data from the **MIT-BIH Arrhythmia Databas
 **See the `results/` folder for before-and-after filtering plots.**
 ## Sample ECG Signal Before & After Filtering
 
-### ** Frequency Spectrum Before and After Results**
+### **Frequency Spectrum Before and After Results**
 ![Frequency Spectrum Results](result/ECG_Filtering_results/frequency_spec_overall.png)
 
 ### **Original Noisy ECG**
