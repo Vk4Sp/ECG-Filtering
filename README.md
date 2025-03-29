@@ -65,15 +65,15 @@ By applying these filters to real ECG data from the **MIT-BIH Arrhythmia Databas
 
 ### **Original Noisy ECG**
 <img src="result/ECG_Filtering_results/original_ecg.png" alt="Filtered ECG" width="600">
- *Figure: Real time ECG with some noisy signals*
+Figure: Real time ECG with some noisy signals.
 
 ### **Filtered ECG**
 <img src="result/ECG_Filtering_results/final_filtered.png" alt="Filtered ECG" width="600">
- *Figure: Final Filtered Noisy ECG signal.*
+Figure: Final Filtered Noisy ECG signal.
 
 ### **Frequency Spectrum Before and After Results**
 <img src="result/ECG_Filtering_results/frequency_spec_overall.png" alt="Filtered ECG" width="600">
- *Figure: Comparison between the frequency spectrum of Orignal Nosiy ECG signal and Notch and Band Pass filter's frequency spectrum .*
+Figure: Comparison between the frequency spectrum of Orignal Nosiy ECG signal and Notch and Band Pass filter's frequency spectrum.
 
 ---
 
