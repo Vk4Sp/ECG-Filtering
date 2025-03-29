@@ -61,6 +61,16 @@ By applying these filters to real ECG data from the **MIT-BIH Arrhythmia Databas
 | Band-Pass Filter | Retains only the necessary ECG frequency range (0.5 - 40 Hz), making it highly effective for ECG filtering |
 
 **See the `results/` folder for before-and-after filtering plots.**
+## Sample ECG Signal Before & After Filtering
+
+### ** Frequency Spectrum Before and After Results**
+![Frequency Spectrum Results](result/ECG_Filtering_results/frequency_spec_overall.png)
+
+### **Original Noisy ECG**
+![Noisy ECG](result/ECG_Filtering_results/original_ecg.png)
+
+### **Filtered ECG**
+![Filtered ECG](result/ECG_Filtering_results/final_filtered.png)
 
 ---
 
