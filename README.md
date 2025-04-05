@@ -1,11 +1,11 @@
 # **ECG Signal Filtering**
 
-## **Introduction: Why is ECG Filtering Important?**
+## **Introduction:**
 The **Electrocardiogram (ECG)** is a crucial tool for monitoring heart activity. However, in real-world applications, ECG signals are often **corrupted by noise**, making it difficult for doctors and AI models to analyze them correctly. Imagine a doctor trying to listen to a heartbeat while standing in a crowded, noisy market—filtering helps remove the unwanted background noise so that only the heartbeat is heard clearly.
 
 ---
 
-## **Understanding ECG Noise: What Causes It?**
+## **ECG Noise:**
 Real-world ECG recordings contain unwanted signals (noise) that can interfere with accurate heart monitoring. Some common noise sources include:
 
 - **Baseline Wander (Low-Frequency Noise, <0.5 Hz)**  
@@ -21,7 +21,7 @@ To remove these unwanted noises and preserve the true ECG features, we apply dif
 
 ---
 
-## **Filtering Techniques Explained (In Simple Terms)**
+## **Filtering Techniques:**
 Filtering helps **clean ECG signals** by removing unwanted frequency components while preserving the actual heart rhythm. We use:
 
 1. **Notch Filter (50 Hz)** → Removes powerline noise.  
@@ -50,7 +50,7 @@ By applying these filters to real ECG data from the **MIT-BIH Arrhythmia Databas
 
 ---
 
-## **Results: How Filtering Improves ECG Signals**
+## **Results:**
 
 | **Filter Type** | **Effect on ECG Signal** |
 |---------------|------------------------|
