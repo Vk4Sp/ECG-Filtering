@@ -1,4 +1,4 @@
-# **ECG Signal Filtering - A Beginner-Friendly Guide**
+# **ECG Signal Filtering**
 
 ## **Introduction: Why is ECG Filtering Important?**
 The **Electrocardiogram (ECG)** is a crucial tool for monitoring heart activity. However, in real-world applications, ECG signals are often **corrupted by noise**, making it difficult for doctors and AI models to analyze them correctly. Imagine a doctor trying to listen to a heartbeat while standing in a crowded, noisy market—filtering helps remove the unwanted background noise so that only the heartbeat is heard clearly.
